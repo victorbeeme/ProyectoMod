@@ -24,7 +24,7 @@ def buscar(request):
     ctx["mutacion"] = request.GET["mutacion"]
     ctx["estaciones"] = request.GET["estaciones"]
     ctx["metodo"] = request.GET["metodo"]
-    return render(request, "index.html", ctx)
+    return render(request, "cargado.html", ctx)
 
 
 

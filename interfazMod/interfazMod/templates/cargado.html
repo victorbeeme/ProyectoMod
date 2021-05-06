@@ -1,0 +1,268 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Nombre de la ventana -->
+    <title>Production Chain</title>
+
+    <!-- Icono de la pestaña -->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+
+    <!-- Fuente Roboto -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700&amp;subset=latin,latin-ext' rel='stylesheet'
+        type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet" type='text/css'>
+
+    <!-- Importo BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <!-- Importo el css que utilizare -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slides.css' %}" />
+</head>
+
+<body>
+    <div class="navbar sticky-top">
+        <div class="navbar-inner">
+            <!-- Logo -->
+            <a href="#" class="brand"> <img src="{% static 'images/ico/favicon.ico' %}" width="50" height="50"
+                    alt="Logo" /> </a>
+
+            <!-- Elementos para navegar -->
+            <div id="texto" class="nav-collapse">
+                <ul class="nav" id="top-navigation">
+                    <li class="home"><a href="#inicio">Introducción</a></li>
+                    <li class="aplicacion"><a href="#app">Aplicación</a></li>
+                    <li class="miembros"><a href="#participantes">Miembros del grupo</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="section primary-section" id="inicio">
+        <div class="title">
+            <h1>Introducción</h1>
+        </div>
+        <p> Production Chain es una aplicación que nos permite obtener la forma óptima de repartir una serie de tareas
+            para cierta actividad en diversas estaciones. </p>
+    </section>
+
+
+    <!-- SLIDES-->
+    <section class="section second-section" id="app">
+        <div class="grid">
+            <div>
+
+                <div class="slideshow-container">
+
+                    <div class="mySlides" style="height: 700px;">
+                        <h2>Introduzca los datos del problema: </h2><br>
+                            <div style="text-align: left; position: relative; left: 18%;">
+                            <form action="/buscar/" method="GET">
+                                <p>Número de estaciones: <input type="number" value="1" name="estaciones" min="1"
+                                        style=" position: relative; left: 40px; width: 170px;" max="20"></p>
+                                <p>Probabilidad de cruce: <input value="0" type="number" step="0.01" min="0" max="1"
+                                        name="cruce" style="position: relative; left: 45px; width: 170px;"></p>
+                                <p>Probabilidad de mutación: <input value="0" type="number" step="0.01" min="0" max="1"
+                                        name="mutacion" style="position: relative; left: 15px; width: 170px;"></p>
+                                <p>Mecanismo de seleccion
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="metodo"
+                                        style="position: relative; left: 25px; width: 170px;">
+                                        <option value="Torneo">Torneo</option>
+                                        <option value="Ruleta">Ruleta</option>
+                                        <option value="Lineal">Lineal</option>
+                                    </select>
+                                </p>
+
+                                <p>Matriz de precedencia (.csv) <br> <input type="file" class="form-control-file"
+                                        id="exampleFormControlFile1"> </p>
+                        </div>
+                                <input class = "button" type="submit" value="Enviar">
+                                    </form>
+                    </div>
+
+                    <div class="mySlides" style="height: 700px;">
+                        <p><b>Solucion obtenida:</b></p>
+                        <p>A continuaci&oacute;n saldr&aacute; la estacion asiganada a cada tarea en la soluci&oacute;n &oacute;ptima</p>
+                        {% if solution %}
+
+                        <ol>
+                        {% for estacion in solution %}
+
+                            <li>Estaci&oacute;n: {{estacion}}</li>
+
+                        {% endfor %}
+                        </ol>
+                        {% endif %}
+                        
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+
+                </div>
+
+                <div class="dot-container">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                </div>
+
+            </div>
+
+            <div class = "infoBox">
+                
+                {% if cruce %}
+                <p><b>Datos de este problema:</b></p>
+                <p>Probabilidades: mutaci&oacute;n: {{mutacion}} | cruce: {{cruce}}</p>
+                <p>Numero de estaciones: {{estaciones}} </p>
+                <p>Metodo de selecci&oacute;n: {{metodo}} </p>
+                <div id="curve_chart" style="width: 900px; height: 500px; position: relative;  left: 30px;">
+                </div>
+                {% else %}
+                <p style="color: black;">Aqui va la grafica sin datos</p>
+                {% endif %}
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Service section start -->
+    <div class="section third-section" id="participantes" style="margin-top: -50px;">
+        <div class="container centered">
+            <div class="title">
+                <h1>Quiénes somos</h1>
+            </div>
+
+            <div class="row">
+                <div class="column centered">
+                    <img src="{% static 'images/foto_maria.jpg' %}" alt="Iñigo Araluce" class="avatar" width="200px" ,
+                        heigth="200px">
+                    <span style="">
+                        <h3 class="nombre">Iñigo Araluce Goded</h3>
+                        <h4 class="matricula">a18m022</h4>
+                    </span>
+                </div>
+
+                <div class="column centered">
+                    <img src="{% static 'images/foto_maria.jpg' %}" alt="Nina Aranda" class="avatar" width="200px" ,
+                        heigth="200px">
+                    <span style="">
+                        <h3 class="nombre">Nina Aranda Font</h3>
+                        <h4 class="matricula">b19m054</h4>
+                    </span>
+                </div>
+
+                <div class="column centered">
+                    <img src="{% static 'images/foto_victor.jpg' %}" alt="Víctor Berrozpe" class="avatar" width="200px"
+                        , heigth="200px">
+                    <span style="">
+                        <h3 class="nombre">Víctor Berrozpe Maldonado</h3>
+                        <h4 class="matricula">a18m068</h4>
+                    </span>
+                </div>
+
+                <div class="column centered">
+                    <img src="{% static 'images/foto_maria.jpg' %}" alt="María Zuil" class="avatar" width="200px" ,
+                        heigth="200px">
+                    <span style="">
+                        <h3 class="nombre">María Zuil González</h3>
+                        <h4 class="matricula">a18m030</h4>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Service section end -->
+
+
+
+    <!-- Footer -->
+    <div class="footer">
+        <p> Trabajo de modelización 2021- 2022. Grupo A4</p>
+    </div>
+
+    <!-- Datos de la grafica -->
+
+    <div style="display: none;">
+        <ul style="color: black;">
+            {% for valorT in valoresTorn %}
+            <li class="valorTorneo">{{valorT}}</li>
+            {% endfor %}
+        </ul>
+        <ul style="color: black;">
+            {% for valorR in valoresRul %}
+            <li class="valorRuleta">{{valorR}}</li>
+            {% endfor %}
+        </ul>
+        <ul style="color: black;">
+            {% for valorL in valoresLin %}
+            <li class="valorLineal">{{valorL}}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+    {% if datosGrafica %}
+    <div id="curve_chart" style="width: 900px; height: 500px; z-index: 2;"></div>
+    {% endif %}
+
+   
+
+
+    <!-- JAVASCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="{% static 'js/service.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/slides.js' %}"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var valuesTorn = document.getElementsByClassName("valorTorneo");
+            var valuesRul = document.getElementsByClassName("valorRuleta");
+            var valuesLin = document.getElementsByClassName("valorLineal");
+
+            let dataSet = [];
+
+            dataSet.push(['Iteracion', 'Torneo', 'Ruleta', 'n mejores(lineal)'])
+            for (i = 0; i < valuesTorn.length; i++) {
+
+                var tuple = [i, Number(valuesTorn[i].innerHTML), Number(valuesRul[i].innerHTML), Number(valuesLin[i].innerHTML)];
+                dataSet.push(tuple);
+            }
+
+            var data = google.visualization.arrayToDataTable(dataSet);
+
+            var options = {
+                title: 'Convergencia',
+                curveType: 'function',
+                legend: { position: 'bottom' }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+
+    </script>
+
+</body>
+
+</html>

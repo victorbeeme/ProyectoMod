@@ -16,14 +16,14 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700&amp;subset=latin,latin-ext' rel='stylesheet'
         type='text/css'>
 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet" type='text/css'>
+
     <!-- Importo BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-responsive.css' %}" />
 
     <!-- Importo el css que utilizare -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/jquery.cslider.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/slides.css' %}" />
 </head>
 
@@ -56,87 +56,65 @@
 
 
     <!-- SLIDES-->
-    <section class="section second-section" id="app">
-        <div class="grid">
+    <section class="section" id="app">
+        
+        <div class="slideshow-container">
 
+            <div class="mySlides" style="height: 700px;">
+                <h2>Introduzca los datos del problema: </h2><br>
+                    <div style="text-align: left; position: relative; left: 35%;">
+                    <form action="/buscar/" method="GET">
+                        <p>Número de estaciones: <input type="number" value="1" name="estaciones" min="1"
+                                style=" position: relative; left: 40px; width: 170px;" max="20"></p>
+                        <p>Probabilidad de cruce: <input value="0" type="number" step="0.01" min="0" max="1"
+                                name="cruce" style="position: relative; left: 45px; width: 170px;"></p>
+                        <p>Probabilidad de mutación: <input value="0" type="number" step="0.01" min="0" max="1"
+                                name="mutacion" style="position: relative; left: 15px; width: 170px;"></p>
+                        <p>Mecanismo de seleccion
+                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="metodo"
+                                style="position: relative; left: 25px; width: 170px;">
+                                <option value="Torneo">Torneo</option>
+                                <option value="Ruleta">Ruleta</option>
+                                <option value="Lineal">Lineal</option>
+                            </select>
+                        </p>
 
-            <div>
+                        <p>Matriz de precedencia (.csv) <br> <input type="file" class="form-control-file"
+                                id="exampleFormControlFile1"> </p>
+                </div>
+                        <input class = "button" type="submit" value="Enviar">
+                            </form>
+            </div>
 
-                <div class="slideshow-container">
+            <div class="mySlides" style="height: 700px;">
+                <h2>Panel de ayuda: </h2>
 
-                    <div class="mySlides" style="height: 700px;">
-                        <p><b>Indroduzca los datos del problema:</b> </p>
-                        <form action="/buscar/" method="GET">
-                            <p>Número de estaciones: <input type="number" value="1" name="estaciones" min="1"
-                                    style="width: 50px;" max="20"></p>
-                            <p>Probabilidad de cruce: <input value="0" type="number" step="0.01" min="0" max="1" name="cruce"></p>
-                            <p>Probabilidad de mutación: <input value="0" type="number" step="0.01" min="0" max="1" name="mutacion"></p>
-                            <p>Mecanismo de seleccion
-                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="metodo">
-                                    <option value="Torneo">Torneo</option>
-                                    <option value="Ruleta">Ruleta</option>
-                                    <option value="Lineal">Lineal</option>
-                                </select>
-                            </p>
+                <p> Para probar esta aplicacion necesitará introducir los siguientes campos: </p>
+                <p><t> Número de Estaciones: En cuantas estaciones se repartirá la distribución de tareas </p>
+                <p><t>Probabilidad de cruce: Probabilidad de que dada una pareja de individuos, estos se reproduzca </p>
+                <p><t>Probablidad de mutación: Que probabilidad tiene un individuo de mutar tras nacer </p>
+                <p><t>Mecanismo de selección: </p>
 
-                            <p>Matriz de precedencia (.csv) <input type="file" class="form-control-file"
-                                    id="exampleFormControlFile1"> </p>
-                            <input type="submit" value="enviar">
-                        </form>
-                    </div>
+                <ul> 
+                    <li>Torneo: Se organiza una compectición entre los distintos individuos y se selecciona a los ganadores </li> 
+                    <li>Ruleta: Se selecciona a los individuos con una probabilidad proporcional al valor obtenido en la función de evaluación </li> 
+                    <li>Lineal: Se seleccionan directamente los n mejores individuos </li> 
+                </ul> 
 
-                    <div class="mySlides" style="height: 700px;">
-                        <q>But man is not made for defeat. A man can be destroyed but not defeated.</q>
-                        <p>Aqui va la grafica que le he preparadoo a la chica mas bomita del mundo y que tanto amo</p>
-                        <p>Te quiero mucho mucho animo vale </p>
-
-                        <p class="author">- Ernest Hemingway</p>
-                    </div>
-
-                    <div class="mySlides" style="height: 700px;">
-                        <p><b>Solucion obtenida:</b></p>
-                        <p>A continuaci&oacute;n saldr&aacute; la estacion asiganada a cada tarea en la soluci&oacute;n &oacute;ptima</p>
-                        {% if solution %}
-
-                        <ol>
-                        {% for estacion in solution %}
-
-                            <li>Estaci&oacute;n: {{estacion}}</li>
-
-                        {% endfor %}
-                        </ol>
-                        {% endif %}
+                <p>Para mas información o más ayuda consulte con un farmaceutico </p>
                         
-                    </div>
-
-                    <a class="prev" onclick="plusSlides(-1)">❮</a>
-                    <a class="next" onclick="plusSlides(1)">❯</a>
-
-                </div>
-
-                <div class="dot-container">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                </div>
-
             </div>
 
-            <div class = "infoBox">
-                
-                {% if cruce %}
-                <p><b>Datos de este problema:</b></p>
-                <p>Probabilidades: mutaci&oacute;n: {{mutacion}} | cruce: {{cruce}}</p>
-                <p>Numero de estaciones: {{estaciones}} </p>
-                <p>Metodo de selecci&oacute;n: {{metodo}} </p>
-                <div id="curve_chart" style="width: 900px; height: 500px; position: relative;  left: 30px;">
-                </div>
-                {% else %}
-                <p style="color: black;">Aqui va la grafica sin datos</p>
-                {% endif %}
-            </div>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
 
         </div>
+
+            <div class="dot-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+            </div>
+
     </section>
 
 
@@ -188,51 +166,14 @@
 
         </div>
     </div>
-    <!-- Service section end -->
-
-
 
     <!-- Footer -->
     <div class="footer">
         <p> Trabajo de modelización 2021- 2022. Grupo A4</p>
     </div>
 
-    <div style="display: none;">
-        <ul style="color: black;">
-            {% for valorT in valoresTorn %}
-            <li class="valorTorneo">{{valorT}}</li>
-            {% endfor %}
-        </ul>
-        <ul style="color: black;">
-            {% for valorR in valoresRul %}
-            <li class="valorRuleta">{{valorR}}</li>
-            {% endfor %}
-        </ul>
-        <ul style="color: black;">
-            {% for valorL in valoresLin %}
-            <li class="valorLineal">{{valorL}}</li>
-            {% endfor %}
-        </ul>
-
-    </div>
-
-    {% if datosGrafica %}
-    <div id="curve_chart" style="width: 900px; height: 500px; z-index: 2;"></div>
-    {% endif %}
-
-    <div style="background-color: grey; height: 200px; width: 100%;">
-
-    </div>
-
-
     <!-- JAVASCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <!-- Script que me permite mover slides -->
-    <script type="text/javascript" src="{% static 'js/modernizr.custom.js' %}"></script>
-
-    <!-- Script de las slides -->
-    <script type="text/javascript" src="{% static 'js/jquery.cslider.js' %}"></script>
 
     <script type="text/javascript" src="{% static 'js/service.js' %}"></script>
 
@@ -241,39 +182,6 @@
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-    <script type="text/javascript">
-        google.charts.load('current', { 'packages': ['corechart'] });
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-
-            var valuesTorn = document.getElementsByClassName("valorTorneo");
-            var valuesRul = document.getElementsByClassName("valorRuleta");
-            var valuesLin = document.getElementsByClassName("valorLineal");
-
-            let dataSet = [];
-
-            dataSet.push(['Iteracion', 'Torneo', 'Ruleta', 'n mejores(lineal)'])
-            for (i = 0; i < valuesTorn.length; i++) {
-
-                var tuple = [i, Number(valuesTorn[i].innerHTML), Number(valuesRul[i].innerHTML), Number(valuesLin[i].innerHTML)];
-                dataSet.push(tuple);
-            }
-
-            var data = google.visualization.arrayToDataTable(dataSet);
-
-            var options = {
-                title: 'Convergencia',
-                curveType: 'function',
-                legend: { position: 'bottom' }
-            };
-
-            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-            chart.draw(data, options);
-        }
-
-    </script>
 
 </body>
 
