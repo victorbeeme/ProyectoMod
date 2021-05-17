@@ -1,4 +1,3 @@
-
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -29,16 +28,16 @@ function showSlides(n) {
     dots[slideIndex - 1].className += " active";
 }
 
-function sacarmaxIter(){
+function sacarmax(tipo) {
 
-    var disp = document.getElementById("maxIterInput").style.visibility;
+    var disp = document.getElementById(tipo).style.visibility;
 
-    if(disp == "hidden"){
-        document.getElementById("maxIterInput").style.visibility = "visible";
-    }else{
-        document.getElementById("maxIterInput").style.visibility = "hidden";
+    if (disp == "hidden") {
+        document.getElementById(tipo).style.visibility = "visible";
+    } else {
+        document.getElementById(tipo).style.visibility = "hidden";
     }
-    
+
 }
 
 /*
@@ -47,6 +46,3 @@ $(document).ready(function () {
       $(this).closest('.checkbox').find('.ch_for').toggle();
     })
   });*/
-
-
-
