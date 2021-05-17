@@ -20,10 +20,19 @@ def buscar(request):
     #metodo = request.GET["metodo"]
 
     ctx = pruebaFuncion.funcionPrueba()
-    ctx["cruce"] = request.GET["cruce"]
-    ctx["mutacion"] = request.GET["mutacion"]
     ctx["estaciones"] = request.GET["estaciones"]
-    ctx["metodo"] = request.GET["metodo"]
+    ctx["poblacion"] = request.GET["poblacion"]
+    ctx["tipoCruce"] = request.GET["tipoCruce"]
+    ctx["cruce"] = request.GET["cruce"]
+    ctx["tipoMut"] = request.GET["tipoMut"]
+    ctx["mutacion"] = request.GET["mutacion"]
+    ctx["seleccion"] = request.GET["seleccion"]
+    ctx["elite"] = request.GET["elite"]
+    ctx["semilla"] = request.GET["semilla"]
+    ctx["iteraciones"] = request.GET["iteraciones"]
+    ctx["segundos"] = request.GET["segundos"]
+    ctx["porcentaje"] = request.GET["porcentaje"]
+    ctx["archivoIN"] = request.GET["archivoIN"]
     return render(request, "cargado.html", ctx)
 
 
