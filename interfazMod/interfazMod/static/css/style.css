@@ -38,6 +38,16 @@ a:hover {
     text-decoration: none;
 }
 
+hr {
+    color: #3366ff;
+    opacity: 1;
+}
+
+#inicio {
+    padding-top: 45px;
+    margin-top: -45px;
+}
+
 
 /**************** BARRA DE NAVEGACION *****************/
 
