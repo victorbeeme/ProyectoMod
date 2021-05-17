@@ -23,4 +23,6 @@ urlpatterns = [
     path('buscar/', buscar),
     path('graph/', loadGraph),
     path('prueba2/', loadPrueba2),
+    
+
 ]

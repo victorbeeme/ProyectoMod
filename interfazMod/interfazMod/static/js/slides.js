@@ -25,3 +25,9 @@ function showSlides(n) {
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
 }
+
+$(document).ready(function () {
+    $('.checkbox input:checkbox').on('click', function(){
+      $(this).closest('.checkbox').find('.ch_for').toggle();
+    })
+  });

@@ -89,6 +89,9 @@
  .mySlides p {
      color: black;
      padding: 10px;
+     font-family: Poppins;
+     font-weight: 2;
+     margin-left: 10px;
  }
  /*********************************Graph side**************************************/
  
@@ -99,4 +102,9 @@
  .infoBox p {
      color: black;
      padding: 10px;
+ }
+ /***************************** Form side ****************************************/
+ 
+ .hide {
+     display: none;
  }
