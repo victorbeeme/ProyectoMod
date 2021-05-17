@@ -10,6 +10,9 @@ function currentSlide(n) {
     showSlides(slideIndex = n);
 }
 
+
+
+
 function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
@@ -26,8 +29,24 @@ function showSlides(n) {
     dots[slideIndex - 1].className += " active";
 }
 
+function sacarmaxIter(){
+
+    var disp = document.getElementById("maxIterInput").style.visibility;
+
+    if(disp == "hidden"){
+        document.getElementById("maxIterInput").style.visibility = "visible";
+    }else{
+        document.getElementById("maxIterInput").style.visibility = "hidden";
+    }
+    
+}
+
+/*
 $(document).ready(function () {
     $('.checkbox input:checkbox').on('click', function(){
       $(this).closest('.checkbox').find('.ch_for').toggle();
     })
-  });
+  });*/
+
+
+
