@@ -168,13 +168,15 @@
                 
                 {% if cruce %}
                 <p><b>Datos de este problema:</b></p>
-                <p>Probabilidades: mutaci&oacute;n: {{mutacion}} | cruce: {{cruce}}</p>
-                <p>Numero de estaciones: {{estaciones}} </p>
+                <p>Tiempo hasta encontrar la solución óptima:{{tiempo}}</p>
+                <p>Probabilidades: mutaci&oacute;n: {{mutación}} | cruce: {{cruce}}</p>
+                <p>Número de estaciones: {{estaciones}} </p>
                 <p>Metodo de selecci&oacute;n: {{metodo}} </p>
                 <div id="curve_chart" style="width: 900px; height: 500px; position: relative;  left: 30px;">
                 </div>
                 {% else %}
                 <p style="color: black;">Aqui va la grafica sin datos</p>
+                <p>Tiempo hasta encontrar la solución óptima:{{tiempo}}</p>
                 {% endif %}
             </div>
 

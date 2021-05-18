@@ -2,6 +2,9 @@ from django.http import HttpResponse
 from django.template import Template, Context
 from django.shortcuts import render
 from interfazMod import pruebaFuncion
+from interfazMod import model
+
+
 
 
 def loadIndex(request):
@@ -19,20 +22,23 @@ def buscar(request):
 
     #metodo = request.GET["metodo"]
 
-    ctx = pruebaFuncion.funcionPrueba()
-    ctx["estaciones"] = request.GET["estaciones"]
-    ctx["poblacion"] = request.GET["poblacion"]
-    ctx["tipoCruce"] = request.GET["tipoCruce"]
-    ctx["cruce"] = request.GET["cruce"]
-    ctx["tipoMut"] = request.GET["tipoMut"]
-    ctx["mutacion"] = request.GET["mutacion"]
-    ctx["seleccion"] = request.GET["seleccion"]
-    ctx["elite"] = request.GET["elite"]
-    ctx["semilla"] = request.GET["semilla"]
-    ctx["iteraciones"] = request.GET["iteraciones"]
-    ctx["segundos"] = request.GET["segundos"]
-    ctx["porcentaje"] = request.GET["porcentaje"]
-    ctx["archivoIN"] = request.GET["archivoIN"]
+    
+    estaciones = request.GET["estaciones"]
+    poblacion = request.GET["poblacion"]
+    tipoCruce = request.GET["tipoCruce"]
+    cruce = request.GET["cruce"]
+    tipoMut = request.GET["tipoMut"]
+    mutacion = request.GET["mutacion"]
+    seleccion = request.GET["seleccion"]
+    elite = request.GET["elite"]
+    semilla = request.GET["semilla"]
+    iteraciones = request.GET["iteraciones"]
+    segundos = request.GET["segundos"]
+    porcentaje = request.GET["porcentaje"]
+    archivoIN = request.GET["archivoIN"]
+    stop_cond = {"max_iter": iteraciones, "max_secs": segundos, "ideal_diff": porcentaje}
+    ctx = model.runModel("021MITCHELL", "max_min", tipoMut,seleccion, tipoCruce, "valid", poblacion, mutacion, elite, cruce, semilla, stop_cond,estaciones)
+    ctx["cruce"] = cruce
     return render(request, "cargado.html", ctx)
 
 
