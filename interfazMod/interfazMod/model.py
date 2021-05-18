@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 # del sys.modules["blp_ga"]
-from blp_ga import BlpGa as Ga
+from interfazMod.interfazMod.blp_ga import BlpGa as Ga
 from datetime import datetime
 
 DATA_SET = "148BARTHOLD"
