@@ -36,8 +36,7 @@ def buscar(request):
     segundos = request.GET["segundos"]
     porcentaje = request.GET["porcentaje"]
     archivoIN = request.GET["archivoIN"]
-    stop_cond = {"max_iter": iteraciones, "max_secs": segundos, "ideal_diff": porcentaje}
-    ctx = model.runModel("021MITCHELL", "max_min", tipoMut,seleccion, tipoCruce, "valid", poblacion, mutacion, elite, cruce, semilla, stop_cond,estaciones)
+    ctx = model.runModel("021MITCHELL", "max_min", tipoMut,seleccion, tipoCruce, "valid", poblacion, mutacion, elite, cruce, semilla, iteraciones, segundos, porcentaje, estaciones)
     ctx["cruce"] = cruce
     return render(request, "cargado.html", ctx)
 

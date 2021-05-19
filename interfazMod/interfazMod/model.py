@@ -5,22 +5,22 @@ import os
 from interfazMod.blp_ga import BlpGa as Ga
 from datetime import datetime
 
-def runModel (data_set, ev_func_type, mut_type,select_type, cross_type, init_pop, pop_size, mut_prob, elit_ratio, cross_prob, seed, stop_cond,stations):
+def runModel (data_set, ev_func_type, mut_type,select_type, cross_type, init_pop, pop_size, mut_prob, elit_ratio, cross_prob, seed, iterations, seconds, percentage, stations):
 
     
 
     DATA_SET = "148BARTHOLD"
     EV_FUNC_TYPE = "max_min"  # var_max / var / max / max_min
-    MUT_TYPE = "random"  # inc_dec / random
-    SELECT_TYPE = "tournament"  # tournament / roulette
-    CROSS_TYPE = "two_points"  # one_point / two_points / uniform
-    INIT_POP = "valid"  # random / valid
-    POP_SIZE = 200
-    MUT_PROB = 0.025
-    ELIT_RATIO = 0.3
-    CROSS_PROB = 0.7
-    SEED = np.random.randint(1000)
-    STOP_COND = {"max_iter": 10000, "max_secs": 5*60, "ideal_diff": 0.05}
+    MUT_TYPE = mut_type  # inc_dec / random
+    SELECT_TYPE = select_type  # tournament / roulette
+    CROSS_TYPE = cross_type  # one_point / two_points / uniform
+    INIT_POP = init_pop  # random / valid
+    POP_SIZE = int(pop_size)
+    MUT_PROB = float(mut_prob)
+    ELIT_RATIO = float(elit_ratio)
+    CROSS_PROB = float(cross_prob)
+    SEED = int(seed) #np.random.randint(1000)
+    STOP_COND = {"max_iter": int(iterations), "max_secs":  int(seconds), "ideal_diff": float(int(percentage) / 100)}
 
     
     #module_dir = os.path.dirname(__file__)  # get current directory
@@ -48,7 +48,7 @@ def runModel (data_set, ev_func_type, mut_type,select_type, cross_type, init_pop
         count += 1
 
     print(f"Problema {data_set} con {N} tareas y {count} restricciones")
-    k = 3
+    k = int(stations)
 
     init = datetime.now()
     model = Ga(n_tasks=N, n_stations=k, times=times, restrictions=R, ev_func_type=EV_FUNC_TYPE, mut_type=MUT_TYPE,
