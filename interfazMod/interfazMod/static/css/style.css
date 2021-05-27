@@ -256,7 +256,8 @@ hr {
 
 .primary-section {
     padding-bottom: 70px;
-    background: #181A1C url(../images/eng.png) center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url(../images/eng.png);
+    /*background: #181A1C url(../images/eng.png) center;*/
     border-top: 6px solid #3366ff;
 }
 
