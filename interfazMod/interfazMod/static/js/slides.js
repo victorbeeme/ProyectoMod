@@ -40,6 +40,7 @@ function sacarmax(tipo) {
 
 }
 
+
 /*
 $(document).ready(function () {
     $('.checkbox input:checkbox').on('click', function(){
