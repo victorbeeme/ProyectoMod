@@ -37,7 +37,8 @@ def buscar(request):
     porcentaje = request.POST["porcentaje"]
     file = request.FILES["archivoIN"]
     content = file.read()
-    ctx = model.runModel("021MITCHELL", "max_min", tipoMut,seleccion, tipoCruce, "valid", poblacion, mutacion, elite, cruce, semilla, iteraciones, segundos, porcentaje, estaciones,content)
+    funcEv = request.POST["tipoFuncionEv"]
+    ctx = model.runModel(funcEv, tipoMut,seleccion, tipoCruce, "valid", poblacion, mutacion, elite, cruce, semilla, iteraciones, segundos, porcentaje, estaciones,content)
     ctx["cruce"] = cruce
     ctx["content"] = content
     return render(request, "cargado.html", ctx)

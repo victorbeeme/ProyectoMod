@@ -6,12 +6,9 @@ from interfazMod.blp_ga import BlpGa as Ga
 from datetime import datetime
 from interfazMod.services import parser
 
-def runModel (data_set, ev_func_type, mut_type,select_type, cross_type, init_pop, pop_size, mut_prob, elit_ratio, cross_prob, seed, iterations, seconds, percentage, stations,content):
+def runModel (ev_func_type, mut_type,select_type, cross_type, init_pop, pop_size, mut_prob, elit_ratio, cross_prob, seed, iterations, seconds, percentage, stations,content):
 
-    print(content)
-
-    DATA_SET = "148BARTHOLD"
-    EV_FUNC_TYPE = "max_min"  # var_max / var / max / max_min
+    EV_FUNC_TYPE = ev_func_type  # var_max / var / max / max_min
     MUT_TYPE = mut_type  # inc_dec / random
     SELECT_TYPE = select_type  # tournament / roulette
     CROSS_TYPE = cross_type  # one_point / two_points / uniform
@@ -38,15 +35,12 @@ def runModel (data_set, ev_func_type, mut_type,select_type, cross_type, init_pop
 
     for i in range(N):
         times.append(int(lines.pop(0)))
-        print(times)
 
     R = np.zeros((N, N))
     count = 0
 
     while lines:
         aux = lines.pop(0)
-        print("LO QUE DA PROBLEMAS")
-        print(aux)
         [i, j] = aux.split(",")
         i, j = int(i), int(j)
         if i == -1:
@@ -54,7 +48,6 @@ def runModel (data_set, ev_func_type, mut_type,select_type, cross_type, init_pop
         R[i - 1, j - 1] = 1
         count += 1
 
-    print(f"Problema {data_set} con {N} tareas y {count} restricciones")
     k = int(stations)
 
     init = datetime.now()
