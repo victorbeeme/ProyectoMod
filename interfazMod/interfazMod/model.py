@@ -4,10 +4,11 @@ import os
 # del sys.modules["blp_ga"]
 from interfazMod.blp_ga import BlpGa as Ga
 from datetime import datetime
+from interfazMod.services import parser
 
-def runModel (data_set, ev_func_type, mut_type,select_type, cross_type, init_pop, pop_size, mut_prob, elit_ratio, cross_prob, seed, iterations, seconds, percentage, stations):
+def runModel (data_set, ev_func_type, mut_type,select_type, cross_type, init_pop, pop_size, mut_prob, elit_ratio, cross_prob, seed, iterations, seconds, percentage, stations,content):
 
-    
+    print(content)
 
     DATA_SET = "148BARTHOLD"
     EV_FUNC_TYPE = "max_min"  # var_max / var / max / max_min
@@ -26,24 +27,30 @@ def runModel (data_set, ev_func_type, mut_type,select_type, cross_type, init_pop
     #module_dir = os.path.dirname(__file__)  # get current directory
     #file_path = os.path.join(module_dir, 'baz.txt')
 
-    pwd = os.path.dirname(__file__)
-    path = pwd + '/'+data_set + '.IN2'
+    #pwd = os.path.dirname(__file__)
+    #path = pwd + '/'+data_set + '.IN2'
     
-    with open(f"{path}") as file:
-        lines = file.readlines()
+    #with open(f"{path}") as file:
+        #lines = file.readlines()
+    lines = parser(content)
     N = int(lines.pop(0))
     times = []
+
     for i in range(N):
         times.append(int(lines.pop(0)))
+        print(times)
 
     R = np.zeros((N, N))
     count = 0
 
     while lines:
-        [i, j] = lines.pop(0).split(",")
+        aux = lines.pop(0)
+        print("LO QUE DA PROBLEMAS")
+        print(aux)
+        [i, j] = aux.split(",")
         i, j = int(i), int(j)
         if i == -1:
-            break
+           break
         R[i - 1, j - 1] = 1
         count += 1
 
