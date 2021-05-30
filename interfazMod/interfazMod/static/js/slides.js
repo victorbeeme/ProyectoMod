@@ -32,10 +32,14 @@ function sacarmax(tipo) {
 
     var disp = document.getElementById(tipo).style.visibility;
 
+    usa = "usa" + tipo
+
     if (disp == "hidden") {
         document.getElementById(tipo).style.visibility = "visible";
+        document.getElementById(usa).value = "1";
     } else {
         document.getElementById(tipo).style.visibility = "hidden";
+        document.getElementById(usa).value = "0";
     }
 
 }

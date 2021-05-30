@@ -50,7 +50,6 @@ def buscar(request):
 
     if usaIterNum == 0:
         iteraciones = 100000
-        print("AAAAAAAAAAAAAAAAAAAA")
         print("NOUSOITER")
 
     if usaTiempoNum == 0:
