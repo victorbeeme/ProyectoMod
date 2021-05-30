@@ -118,4 +118,4 @@ def runModel (ev_func_type, mut_type,select_type, cross_type, init_pop, pop_size
 
     tareaEstacion = ["1112212222322333333444"]
 
-    return {"valoresTorn": valoresTor, "valoresRul":valoresRul ,"valoresLin":valoresLin, "grafica": "true", "solution": "La conexion es buena", "tiempo": run_time}
+    return {"valoresTorn": valoresTor, "valoresRul":valoresRul ,"valoresLin":valoresLin, "grafica": "true", "solution": "La conexion es buena", "tiempo": run_time, "valoresFun":model.best_ev_func, "mejoresTiempos":model.best_max_time}
