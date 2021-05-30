@@ -22,6 +22,7 @@ def loadIndex(request):
 def buscar(request):
 
     #metodo = request.GET["metodo"]
+
     estaciones = request.POST["estaciones"]
     poblacion = request.POST["poblacion"]
     tipoCruce = request.POST["tipoCruce"]
@@ -31,12 +32,35 @@ def buscar(request):
     seleccion = request.POST["seleccion"]
     elite = request.POST["elite"]
     semilla = request.POST["semilla"]
-    iteraciones = request.POST["iteraciones"]
-    segundos = request.POST["segundos"]
-    porcentaje = request.POST["porcentaje"]
     file = request.FILES["archivoIN"]
     content = file.read()
     funcEv = request.POST["tipoFuncionEv"]
+
+    iteraciones = request.POST["iteraciones"]
+    segundos = request.POST["segundos"]
+    porcentaje = request.POST["porcentaje"]
+
+    usaIter = request.POST["usaElmaxIterInput"]
+    usaTiempo = request.POST["usaElmaxSegInput"]
+    usaDiff = request.POST["usaEldifPorcentual"]
+
+    usaIterNum = int(usaIter)
+    usaTiempoNum = int(usaTiempo)
+    usaDiffNum = int(usaDiff)
+
+    if usaIterNum == 0:
+        iteraciones = 100000
+        print("AAAAAAAAAAAAAAAAAAAA")
+        print("NOUSOITER")
+
+    if usaTiempoNum == 0:
+        segundos = 100000
+        print("NOUSOSEGS")
+
+    if usaDiffNum == 0:
+        porcentaje = 0
+        print("NOUSOPORCENTAJE")
+
     ctx = model.runModel(funcEv, tipoMut,seleccion, tipoCruce, "valid", poblacion, mutacion, elite, cruce, semilla, iteraciones, segundos, porcentaje, estaciones,content)
     ctx["cruce"] = cruce
     ctx["content"] = content
