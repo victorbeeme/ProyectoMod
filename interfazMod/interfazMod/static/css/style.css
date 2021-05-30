@@ -369,3 +369,15 @@ td, th {
     text-align: left;
     padding: 8px;
   }
+
+
+/******************* Pop Up *********************/
+
+#popUp{
+    position: absolute;
+    top: 100%;
+    left: 30%;
+    height: 400px;
+    width: 660px;
+    background-color: #3366ff;
+}

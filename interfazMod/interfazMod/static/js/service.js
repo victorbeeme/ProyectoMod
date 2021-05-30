@@ -4,3 +4,8 @@ function mostrarGrafica(){
     
 }
 
+function showPopUP(){
+
+    document.getElementById("popUp").style.display = "block"
+
+}

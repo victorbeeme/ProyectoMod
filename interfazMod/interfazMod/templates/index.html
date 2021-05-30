@@ -147,7 +147,7 @@
                                 {% csrf_token %}
                                 <p><input type="file" name = "archivoIN" class="form-control-file" id="exampleFormControlFile1" required> </p>
                         </div>
-                                <input class = "button" type="submit" value="Enviar">
+                                <input class = "button" type="submit" value="Enviar" onclick="showPopUP()">
                                 <div id="MyHiddenBox" style="display:none">
                                     <input type ="number" id="usamaxIterInput" name="usaElmaxIterInput" value="0">
                                     <input type ="number" id="usamaxSegInput" name="usaElmaxSegInput" value="0">
@@ -255,6 +255,12 @@
     <!-- Footer -->
     <div class="footer">
         <p> Trabajo de modelización 2021- 2022. Grupo A4</p>
+    </div>
+
+    <div id="popUp" style="display: none;">
+        <p>Aquí va el texto de cargando</p>
+        <p>La funcion esta en services.js y el estilo en style.css, aunque no esten todos los campos rellenos esto sale (Y todavia está feito)</p>
+        <p>Te quiero mucho</p>
     </div>
 
     <!-- JAVASCRIPTS -->
