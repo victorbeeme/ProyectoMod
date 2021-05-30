@@ -154,16 +154,20 @@
                     <div class="mySlides" style="height: 1100px;">
                         <p><b>Solucion obtenida:</b></p>
                         <p>A continuación saldr&aacute; la estacion asiganada a cada tarea en la solución óptima</p>
-                        {% if solution %}
 
-                        <ol>
-                        {% for estacion in solution %}
+                        <table style="border: 1px; padding: 10px; color: black; position: relative; left: 310px;">
+                            <tr>
+                                <th>Tarea</th>
+                                <th>Estación</th>
+                            </tr>
+                            {% for estacion in solucion %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{estacion}}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
 
-                            <li>Estación: {{estacion}}</li>
-
-                        {% endfor %}
-                        </ol>
-                        {% endif %}
                         
                     </div>
 
@@ -255,21 +259,7 @@
     <!-- Datos de la grafica -->
 
     <div style="display: none;">
-        <ul style="color: black;">
-            {% for valorT in valoresTorn %}
-            <li class="valorTorneo">{{valorT}}</li>
-            {% endfor %}
-        </ul>
-        <ul style="color: black;">
-            {% for valorR in valoresRul %}
-            <li class="valorRuleta">{{valorR}}</li>
-            {% endfor %}
-        </ul>
-        <ul style="color: black;">
-            {% for valorL in valoresLin %}
-            <li class="valorLineal">{{valorL}}</li>
-            {% endfor %}
-        </ul>
+
         
         <ul style="color: black;">
             {% for valorF in valoresFun %}

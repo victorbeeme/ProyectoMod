@@ -112,10 +112,14 @@ def runModel (ev_func_type, mut_type,select_type, cross_type, init_pop, pop_size
     # plt.legend(labels=['best_max_time'])
     # plt.draw()
 
-    valoresTor = [100, 97, 94, 90, 86, 83, 83, 82, 50, 40, 35, 34, 35, 35, 34, 34, 33]
-    valoresRul = [100, 80, 60, 45, 40, 35, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33]
-    valoresLin = [100, 80, 50, 40, 40, 39, 38, 36, 35, 34, 34, 33, 33, 33, 33, 33, 33]
+    print("SOLUCION")
+    print(model.best_ind)
 
-    tareaEstacion = ["1112212222322333333444"]
+    aInt = []
 
-    return {"valoresTorn": valoresTor, "valoresRul":valoresRul ,"valoresLin":valoresLin, "grafica": "true", "solution": "La conexion es buena", "tiempo": run_time, "valoresFun":model.best_ev_func, "mejoresTiempos":model.best_max_time}
+    for sol in model.best_ind:
+        aInt.append(int(sol))
+
+
+
+    return { "tiempo": run_time, "valoresFun":model.best_ev_func, "mejoresTiempos":model.best_max_time,"solucion":aInt}
