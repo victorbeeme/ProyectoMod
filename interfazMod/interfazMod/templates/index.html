@@ -145,7 +145,7 @@
 
                                 <p>Datos del problema (.IN2):</p>
                                 {% csrf_token %}
-                                <p><input type="file" name = "archivoIN" class="form-control-file" id="exampleFormControlFile1" accept = ".IN2, .in2" required> </p>
+                                <p><input type="file" name = "archivoIN" class="form-control-file" id="exampleFormControlFile1" accept = ".IN2" required> </p>
                         </div>
                                 <input class = "button" type="submit" value="Enviar" onclick="showPopUP()">
                                 <div id="MyHiddenBox" style="display:none">
@@ -263,7 +263,8 @@
         <p>Espere mientras encontramos una solución óptima para su problema.</p>
         <!--<img class = "carga" src="{% static 'images/loading.gif' %}" alt="Cargando" width="250px" heigth="250px">-->
         <!--<img class = "carga" src="{% static 'images/loading2.gif' %}" alt="Cargando" width="250px" heigth="250px" style="margin-top:-40px">-->
-        <img class = "carga" src="{% static 'images/loading3.gif' %}" alt="Cargando" width="150px" heigth="150px" style="margin-top:-20px">
+        <!--<img class = "carga" src="{% static 'images/loading3.gif' %}" alt="Cargando" width="150px" heigth="150px" style="margin-top:-20px">-->
+        <img class = "carga" src="{% static 'images/loading4.gif!w340' %}" alt="Cargando" width="200px" heigth="200px" style="margin-top:-20px">
         <!--<p>La funcion esta en services.js y el estilo en style.css, aunque no esten todos los campos rellenos esto sale (Y todavia está feito)</p>-->
     </div>
 

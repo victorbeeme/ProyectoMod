@@ -50,15 +50,12 @@ def buscar(request):
 
     if usaIterNum == 0:
         iteraciones = 100000
-        print("NOUSOITER")
 
     if usaTiempoNum == 0:
         segundos = 100000
-        print("NOUSOSEGS")
 
     if usaDiffNum == 0:
         porcentaje = 0
-        print("NOUSOPORCENTAJE")
 
     ctx = model.runModel(funcEv, tipoMut,seleccion, tipoCruce, "valid", poblacion, mutacion, elite, cruce, semilla, iteraciones, segundos, porcentaje, estaciones,content)
     ctx["cruce"] = cruce

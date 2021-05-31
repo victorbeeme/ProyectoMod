@@ -112,9 +112,6 @@ def runModel (ev_func_type, mut_type,select_type, cross_type, init_pop, pop_size
     # plt.legend(labels=['best_max_time'])
     # plt.draw()
 
-    print("SOLUCION")
-    print(model.best_ind)
-
     aInt = []
 
     for sol in model.best_ind:
