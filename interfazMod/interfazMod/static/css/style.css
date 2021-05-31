@@ -364,6 +364,10 @@ Slides
     margin: 0;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 18944beabfd0a7b1a16a4b7ac96d14cd29fb87b8
 td {
     border: 1px solid black;
     text-align: left;
@@ -376,13 +380,22 @@ th {
     text-align: left;
     padding: 8px;
     background-color: lightgray;
+<<<<<<< HEAD
 }
 
 table {
     overflow-y: scroll;
     height: 830px;
     display: block;
+=======
+>>>>>>> 18944beabfd0a7b1a16a4b7ac96d14cd29fb87b8
 }
+
+table{
+    overflow-y:scroll;
+    height:830px;
+    display:block;
+ }
 
 
 /******************* Pop Up *********************/

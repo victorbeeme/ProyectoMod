@@ -155,6 +155,7 @@
                         <h2>Solución obtenida:</h2>
                         <p>A continuación se mostrará a qué estación va asignada cada tarea (es decir, la solución óptima a la que hemos llegado).</p>
 
+ 
                         <table style="border: 1px; padding: 10px; color: black; position: relative; left: 310px;">
                             <tr>
                                 <th>Tarea</th>
@@ -167,7 +168,6 @@
                             </tr>
                             {% endfor %}
                         </table>
-
                         
                     </div>
 
@@ -319,10 +319,17 @@
 
             var options = {
                 hAxis: {
+<<<<<<< HEAD
                     title: "Iteraciones"
                 },
                 vAxis: {
                     title: "Funcion Evaluacion"
+=======
+                title: "Iteraciones"
+                },
+                vAxis: {
+                title: "Funcion Evaluacion"
+>>>>>>> 18944beabfd0a7b1a16a4b7ac96d14cd29fb87b8
                 },
                 //curveType: 'function',
                 colors : ['blue'],
@@ -348,6 +355,7 @@
             var data = google.visualization.arrayToDataTable(dataSet);
 
             var options = {
+<<<<<<< HEAD
 
                 hAxis: {
                     title: "Iteraciones"
@@ -355,6 +363,15 @@
                 vAxis: {
                     title: "Tiempo Maximo"
                 },
+=======
+                hAxis: {
+                title: "Iteraciones"
+                },
+                vAxis: {
+                title: "Tiempo Maximo"
+                },
+                curveType: 'function',
+>>>>>>> 18944beabfd0a7b1a16a4b7ac96d14cd29fb87b8
                 colors : ['red'],
                 legend: {position: 'none'}
             };
