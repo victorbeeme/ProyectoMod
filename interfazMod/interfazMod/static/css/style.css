@@ -364,10 +364,6 @@ Slides
     margin: 0;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 18944beabfd0a7b1a16a4b7ac96d14cd29fb87b8
 td {
     border: 1px solid black;
     text-align: left;
@@ -380,15 +376,12 @@ th {
     text-align: left;
     padding: 8px;
     background-color: lightgray;
-<<<<<<< HEAD
 }
 
 table {
     overflow-y: scroll;
     height: 830px;
     display: block;
-=======
->>>>>>> 18944beabfd0a7b1a16a4b7ac96d14cd29fb87b8
 }
 
 table{
@@ -451,13 +444,15 @@ hr {
     color: red;
     border-color: #5878ca;
     background-color: #5878ca;
+    position: relative;
+    left: 120px;
 }
 
 #infoIN2 {
     position: absolute;
-    top: 140%;
+    top: 190%;
     left: 32%;
-    height: 450px;
+    height: 550px;
     width: 700px;
     /*background-color: #3366ff;
     align-content: center;
@@ -475,4 +470,8 @@ hr {
     -moz-border-radius: 35px 0px 35px 0px;
     -webkit-border-radius: 35px 0px 35px 0px;
     border: 2px solid black;
+}
+
+.grid>p {
+    padding: 0px;
 }
