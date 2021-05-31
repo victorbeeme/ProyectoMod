@@ -5,7 +5,13 @@ function mostrarGrafica() {
 }
 
 function showPopUP() {
-
     document.getElementById("popUp").style.display = "block";
+}
 
+function showInfo() {
+    document.getElementById("infoIN2").style.display = "block";
+}
+
+function cerrarCuadro() {
+    document.getElementById("infoIN2").style.display = "none";
 }

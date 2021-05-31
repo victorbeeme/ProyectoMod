@@ -364,11 +364,24 @@ Slides
     margin: 0;
 }
 
-td,
+td {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+    background-color: white;
+}
+
 th {
     border: 1px solid black;
     text-align: left;
     padding: 8px;
+    background-color: lightgray;
+}
+
+table {
+    overflow-y: scroll;
+    height: 830px;
+    display: block;
 }
 
 
@@ -406,4 +419,47 @@ hr {
     display: block;
     margin-left: auto;
     margin-right: auto
+}
+
+
+/* Mensaje con info de IN2 */
+
+#botonPrec {
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    padding-right: 20px;
+    margin-left: 5px;
+    border-color: black;
+    background-color: white;
+}
+
+#closeButton {
+    color: red;
+    border-color: #5878ca;
+    background-color: #5878ca;
+}
+
+#infoIN2 {
+    position: absolute;
+    top: 140%;
+    left: 32%;
+    height: 450px;
+    width: 700px;
+    /*background-color: #3366ff;
+    align-content: center;
+    */
+    font-family: Poppins;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    background: #5878ca;
+    margin: 0 0 25px;
+    overflow: hidden;
+    padding: 20px;
+    border-radius: 35px 0px 35px 0px;
+    -moz-border-radius: 35px 0px 35px 0px;
+    -webkit-border-radius: 35px 0px 35px 0px;
+    border: 2px solid black;
 }

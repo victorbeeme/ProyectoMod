@@ -91,6 +91,11 @@
      grid-template-columns: 400px 400px;
  }
  
+ .grid-dos {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+ }
+ 
  .mySlides p {
      color: black;
      padding: 10px;

@@ -39,7 +39,7 @@ function sacarmax(tipo) {
         document.getElementById(usa).value = "1";
     } else {
         document.getElementById(tipo).style.visibility = "hidden";
-        document.getElementById(usa).value = "0+";
+        document.getElementById(usa).value = "0";
     }
 
 }
