@@ -64,6 +64,26 @@
 
                 <div class="slideshow-container">
 
+                    <div class="mySlides" style="height: 1100px;">
+                        <h2>Solución obtenida:</h2>
+                        <p>A continuación se mostrará a qué estación va asignada cada tarea (es decir, la solución óptima a la que hemos llegado).</p>
+
+ 
+                        <table style="border: 1px; padding: 10px; color: black; position: relative; left: 310px;">
+                            <tr>
+                                <th>Tarea</th>
+                                <th>Estación</th>
+                            </tr>
+                            {% for estacion in solucion %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{estacion}}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                        
+                    </div>
+
                     <div class="mySlides" style="height: 1200px;">
                         <h2>Introduzca los datos del problema: </h2><br>
                             <div style="text-align: left; position: relative; left: 7%;">
@@ -149,26 +169,6 @@
                                     <input type ="number" id="usadifPorcentual" name="usaEldifPorcentual" value="0">
                                 </div>
                                     </form>
-                    </div>
-
-                    <div class="mySlides" style="height: 1100px;">
-                        <h2>Solución obtenida:</h2>
-                        <p>A continuación se mostrará a qué estación va asignada cada tarea (es decir, la solución óptima a la que hemos llegado).</p>
-
- 
-                        <table style="border: 1px; padding: 10px; color: black; position: relative; left: 310px;">
-                            <tr>
-                                <th>Tarea</th>
-                                <th>Estación</th>
-                            </tr>
-                            {% for estacion in solucion %}
-                            <tr>
-                                <td>{{forloop.counter}}</td>
-                                <td>{{estacion}}</td>
-                            </tr>
-                            {% endfor %}
-                        </table>
-                        
                     </div>
 
                     <a class="prev" onclick="plusSlides(-1)">❮</a>
