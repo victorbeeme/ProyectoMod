@@ -117,6 +117,6 @@ def runModel (ev_func_type, mut_type,select_type, cross_type, init_pop, pop_size
     for sol in model.best_ind:
         aInt.append(int(sol))
 
+    ideal_time = sum(times)/k
 
-
-    return { "tiempo": run_time, "valoresFun":model.best_ev_func, "mejoresTiempos":model.best_max_time,"solucion":aInt}
+    return { "tiempo": run_time, "valoresFun":model.best_ev_func, "mejoresTiempos":model.best_max_time,"solucion":aInt, "tiempoIdeal":int(ideal_time)}

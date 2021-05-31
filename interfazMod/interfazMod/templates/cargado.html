@@ -15,7 +15,8 @@
     <!-- Fuente Roboto -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700&amp;subset=latin,latin-ext' rel='stylesheet'
         type='text/css'>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet" type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet"
+        type='text/css'>
 
     <!-- Importo BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -64,11 +65,12 @@
 
                 <div class="slideshow-container">
 
-                    <div class="mySlides" style="height: 1100px;">
+                    <div class="mySlides" style="height: 1200px;">
                         <h2>Solución obtenida:</h2>
-                        <p>A continuación se mostrará a qué estación va asignada cada tarea (es decir, la solución óptima a la que hemos llegado).</p>
+                        <p>A continuación se mostrará a qué estación va asignada cada tarea (es decir, la solución
+                            óptima a la que hemos llegado).</p>
 
- 
+
                         <table style="border: 1px; padding: 10px; color: black; position: relative; left: 310px;">
                             <tr>
                                 <th>Tarea</th>
@@ -81,21 +83,24 @@
                             </tr>
                             {% endfor %}
                         </table>
-                        
+
                     </div>
 
                     <div class="mySlides" style="height: 1200px;">
                         <h2>Introduzca los datos del problema: </h2><br>
-                            <div style="text-align: left; position: relative; left: 7%;">
-                            <form action="/buscar/" method="POST" class = "grid" enctype="multipart/form-data">
+                        <div style="text-align: left; position: relative; left: 7%;">
+                            <form action="/buscar/" method="POST" class="grid" enctype="multipart/form-data">
                                 <p>Número de estaciones:</p>
-                                <p><input type="number" value="3" name="estaciones" min="1" style=" position: relative; width: 200px;" max="20" required></p>
+                                <p><input type="number" value="3" name="estaciones" min="1"
+                                        style=" position: relative; width: 200px;" max="20" required></p>
                                 <p>Tamaño de la población: </p>
-                                <p><input type="number" value="200" name="poblacion" min="1" style=" position: relative; width: 200px;" required></p>
+                                <p><input type="number" value="200" name="poblacion" min="1"
+                                        style=" position: relative; width: 200px;" required></p>
 
                                 <p>Tipo de función de evaluación:</p>
                                 <p>
-                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="tipoFuncionEv" style="position: relative; width: 200px;">
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect"
+                                        name="tipoFuncionEv" style="position: relative; width: 200px;">
                                         <option value="max_min" selected>Máximo-Mínimo</option>
                                         <option value="var">Con varianza</option>
                                         <option value="var_max">Máximo de varianza</option>
@@ -105,7 +110,8 @@
 
                                 <p>Tipo de cruce:</p>
                                 <p>
-                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="tipoCruce" style="position: relative; width: 200px;">
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="tipoCruce"
+                                        style="position: relative; width: 200px;">
                                         <option value="uniform">Uniforme</option>
                                         <option value="one_point">Unipuntual</option>
                                         <option value="two_points" selected>Dos puntos</option>
@@ -113,62 +119,76 @@
                                 </p>
 
                                 <p>Probabilidad de cruce:</p>
-                                <p><input value="0.7" type="number" step="0.001" min="0" max="1" name="cruce" style="position: relative; width: 200px;" required></p>
+                                <p><input value="0.7" type="number" step="0.001" min="0" max="1" name="cruce"
+                                        style="position: relative; width: 200px;" required></p>
                                 <p>Tipo de mutación: </p>
                                 <p>
-                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="tipoMut" style="position: relative; width: 200px;">
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="tipoMut"
+                                        style="position: relative; width: 200px;">
                                         <option value="inc-dec">Incremento/decremento</option>
                                         <option value="random" selected>Aleatorio</option>
                                     </select>
                                 </p>
                                 <p>Probabilidad de mutación: </p>
-                                <p><input value="0.005" type="number" step="0.0001" min="0" max="1" name="mutacion" style="position: relative; width: 200px;" required></p>
+                                <p><input value="0.005" type="number" step="0.0001" min="0" max="1" name="mutacion"
+                                        style="position: relative; width: 200px;" required></p>
                                 <p>Mecanismo de selección:</p>
                                 <p>
-                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="seleccion" style="position: relative; width: 200px;">
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="seleccion"
+                                        style="position: relative; width: 200px;">
                                         <option value="tournament">Torneo</option>
                                         <option value="roulette">Ruleta</option>
                                     </select>
                                 </p>
                                 <p>Ratio de élite: </p>
-                                <p><input type="number"  value="0.2" type="number" step="0.001" min="0" max="1" name="elite" style=" position: relative; width: 200px;" required></p>
+                                <p><input type="number" value="0.2" type="number" step="0.001" min="0" max="1"
+                                        name="elite" style=" position: relative; width: 200px;" required></p>
 
-                                <p>Semilla:</p> 
-                                <p><input type="number" value={{num}} name="semilla" min="0" style=" position: relative; width: 200px;" required></p>
+                                <p>Semilla:</p>
+                                <p><input type="number" value={{num}} name="semilla" min="0"
+                                        style=" position: relative; width: 200px;" required></p>
 
-                                <p>Condiciones de parada:</p><p></p>
-                                
-                                    <div class="form-check">
-                                        <p><input type="checkbox" class="form-check-input" id="maxIter" onclick="sacarmax('maxIterInput')">Máximo de iteraciones</p>                                        
-                                    </div>
-                                    <div id = "maxIterInput" style="visibility: hidden;">
-                                        <p><input type="number" value="10000" name="iteraciones" min="0" style=" position: relative; width: 200px;"> iteraciones</p>
-                                    </div>
-                                    <div class="form-check">
-                                        <p><input type="checkbox" class="form-check-input" id="maxSeg" onclick="sacarmax('maxSegInput')">Máximo de segundos</p>
-                                    </div>
-                                    <div id = "maxSegInput" style="visibility: hidden;">
-                                        <p><input type="number" value="300" name="segundos" min="0" style=" position: relative; width: 200px;"> segundos</p>
-                                    </div>
-                                    <div class="form-check">
-                                        <p><input type="checkbox" class="form-check-input" onclick="sacarmax('difPorcentual')">Diferencia porcentual</p>
-                                    </div>
-                                    <div id = "difPorcentual" style="visibility: hidden;">
-                                        <p><input type="number" value="5" name="porcentaje" min="0" style=" position: relative; width: 200px;" max = 100> %</p>
-                                    </div>
-                                
+                                <p>Condiciones de parada:</p>
+                                <p></p>
+
+                                <div class="form-check">
+                                    <p><input type="checkbox" class="form-check-input" id="maxIter"
+                                            onclick="sacarmax('maxIterInput')">Máximo de iteraciones</p>
+                                </div>
+                                <div id="maxIterInput" style="visibility: hidden;">
+                                    <p><input type="number" value="10000" name="iteraciones" min="0"
+                                            style=" position: relative; width: 200px;"> iteraciones</p>
+                                </div>
+                                <div class="form-check">
+                                    <p><input type="checkbox" class="form-check-input" id="maxSeg"
+                                            onclick="sacarmax('maxSegInput')">Máximo de segundos</p>
+                                </div>
+                                <div id="maxSegInput" style="visibility: hidden;">
+                                    <p><input type="number" value="300" name="segundos" min="0"
+                                            style=" position: relative; width: 200px;"> segundos</p>
+                                </div>
+                                <div class="form-check">
+                                    <p><input type="checkbox" class="form-check-input"
+                                            onclick="sacarmax('difPorcentual')">Diferencia porcentual</p>
+                                </div>
+                                <div id="difPorcentual" style="visibility: hidden;">
+                                    <p><input type="number" value="5" name="porcentaje" min="0"
+                                            style=" position: relative; width: 200px;" max=100> %</p>
+                                </div>
+
 
                                 <p>Datos del problema (.IN2):</p>
                                 {% csrf_token %}
-                                <p><input type="file" name = "archivoIN" class="form-control-file" id="exampleFormControlFile1" accept = ".IN2" required> </p>
+                                <p><input type="file" name="archivoIN" class="form-control-file"
+                                        id="exampleFormControlFile1" accept=".IN2" required> </p>
                         </div>
-                                <input class = "button" type="submit" value="Enviar" onclick="showPopUP()">
-                                <div id="MyHiddenBox" style="display:none">
-                                    <input type ="number" id="usamaxIterInput" name="usaElmaxIterInput" value="0">
-                                    <input type ="number" id="usamaxSegInput" name="usaElmaxSegInput" value="0">
-                                    <input type ="number" id="usadifPorcentual" name="usaEldifPorcentual" value="0">
-                                </div>
-                                    </form>
+                        <input class="button" type="submit" value="Enviar" onclick="showPopUP()">
+                        <div id="MyHiddenBox" style="display:none">
+                            <input type="number" id="usamaxIterInput" name="usaElmaxIterInput" value="0">
+                            <input type="number" id="usamaxSegInput" name="usaElmaxSegInput" value="0">
+                            <input type="number" id="usadifPorcentual" name="usaEldifPorcentual" value="0">
+                        </div>
+                        </form>
                     </div>
 
                     <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -183,8 +203,8 @@
 
             </div>
 
-            <div class = "infoBox">
-                
+            <div class="infoBox">
+
                 {% if cruce %}
                 <p style="font-family: 'Poppins'"><b>Datos de este problema:</b></p>
                 <div id="curve_chartEV" style="width: 900px; height: 500px; position: relative;  left: 30px;"></div>
@@ -264,7 +284,8 @@
         <!--<img class = "carga" src="{% static 'images/loading.gif' %}" alt="Cargando" width="250px" heigth="250px">-->
         <!--<img class = "carga" src="{% static 'images/loading2.gif' %}" alt="Cargando" width="250px" heigth="250px" style="margin-top:-40px">-->
         <!--<img class = "carga" src="{% static 'images/loading3.gif' %}" alt="Cargando" width="150px" heigth="150px" style="margin-top:-20px">-->
-        <img class = "carga" src="{% static 'images/loading4.gif!w340' %}" alt="Cargando" width="200px" heigth="200px" style="margin-top:-20px">
+        <img class="carga" src="{% static 'images/loading4.gif!w340' %}" alt="Cargando" width="200px" heigth="200px"
+            style="margin-top:-20px">
         <!--<p>La funcion esta en services.js y el estilo en style.css, aunque no esten todos los campos rellenos esto sale (Y todavia está feito)</p>-->
     </div>
 
@@ -272,7 +293,7 @@
 
     <div style="display: none;">
 
-        
+
         <ul style="color: black;">
             {% for valorF in valoresFun %}
             <li class="valorFuncion">{{valorF}}</li>
@@ -283,9 +304,10 @@
             <li class="mejorTiempo">{{mejorT}}</li>
             {% endfor %}
         </ul>
+        <p id="tiempoIdeal">{{tiempoIdeal}}</p>
     </div>
 
-   
+
 
 
     <!-- JAVASCRIPTS -->
@@ -299,7 +321,7 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <script type="text/javascript">
-       google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.load('current', { 'packages': ['corechart'] });
         google.charts.setOnLoadCallback(drawChartEV);
         google.charts.setOnLoadCallback(drawChartMaxTimes);
 
@@ -319,13 +341,13 @@
 
             var options = {
                 hAxis: {
-                title: "Iteraciones"
+                    title: "Iteraciones"
                 },
                 vAxis: {
-                title: "Funcion Evaluacion"
+                    title: "Funcion Evaluacion"
                 },
-                colors : ['blue'],
-                legend: {position: 'none'}
+                colors: ['blue'],
+                legend: { position: 'none' }
             };
 
             var chart = new google.visualization.LineChart(document.getElementById('curve_chartEV'));
@@ -335,12 +357,13 @@
         function drawChartMaxTimes() {
 
             var valoresFuncion = document.getElementsByClassName("mejorTiempo");
+            var tiempoIdeal = document.getElementById("tiempoIdeal").innerHTML;
             let dataSet = [];
 
-            dataSet.push(['Iteracion', 'tiempoMaximo'])
+            dataSet.push(['Iteracion', 'tiempoMaximo', 'Tiempo Ideal'])
             for (i = 0; i < valoresFuncion.length; i++) {
 
-                var tuple = [i, Number(valoresFuncion[i].innerHTML)];
+                var tuple = [i, Number(valoresFuncion[i].innerHTML), Number(tiempoIdeal)];
                 dataSet.push(tuple);
             }
 
@@ -354,8 +377,8 @@
                 vAxis: {
                     title: "Tiempo Maximo"
                 },
-                colors : ['red'],
-                legend: {position: 'none'}
+                colors: ['red', 'green'],
+                legend: { position: 'right' }
             };
 
             var chart = new google.visualization.LineChart(document.getElementById('curve_chartMT'));
