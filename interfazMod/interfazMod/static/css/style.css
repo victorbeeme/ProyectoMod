@@ -364,12 +364,26 @@ Slides
     margin: 0;
 }
 
-td,
+
+td {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+    background-color: white;
+}
+
 th {
     border: 1px solid black;
     text-align: left;
     padding: 8px;
+    background-color: lightgray;
 }
+
+table{
+    overflow-y:scroll;
+    height:830px;
+    display:block;
+ }
 
 
 /******************* Pop Up *********************/

@@ -155,6 +155,7 @@
                         <h2>Solución obtenida:</h2>
                         <p>A continuación se mostrará a qué estación va asignada cada tarea (es decir, la solución óptima a la que hemos llegado).</p>
 
+ 
                         <table style="border: 1px; padding: 10px; color: black; position: relative; left: 310px;">
                             <tr>
                                 <th>Tarea</th>
@@ -167,7 +168,6 @@
                             </tr>
                             {% endfor %}
                         </table>
-
                         
                     </div>
 
@@ -318,9 +318,15 @@
             var data = google.visualization.arrayToDataTable(dataSet);
 
             var options = {
-                title: 'Convergencia',
+                hAxis: {
+                title: "Iteraciones"
+                },
+                vAxis: {
+                title: "Funcion Evaluacion"
+                },
                 //curveType: 'function',
-                legend: { position: 'bottom' }
+                colors : ['blue'],
+                legend: {position: 'none'}
             };
 
             var chart = new google.visualization.LineChart(document.getElementById('curve_chartEV'));
@@ -342,10 +348,15 @@
             var data = google.visualization.arrayToDataTable(dataSet);
 
             var options = {
-                title: 'Tiempos Maximos',
+                hAxis: {
+                title: "Iteraciones"
+                },
+                vAxis: {
+                title: "Tiempo Maximo"
+                },
                 curveType: 'function',
                 colors : ['red'],
-                legend: { position: 'bottom' }
+                legend: {position: 'none'}
             };
 
             var chart = new google.visualization.LineChart(document.getElementById('curve_chartMT'));
