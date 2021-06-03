@@ -167,33 +167,33 @@
                 <br>
                 <div class = "ayuda">
                     <p>Para probar esta aplicacion necesitará introducir los siguientes campos: </p>
-                    <p><b style="font-weight:bold">Número de estaciones:</b> En cuántas estaciones se repartirá la distribución de tareas </p>
-                    <p><b style="font-weight:bold">Tamaño de población:</b> Tamaño inicial de la población con el que se desea comenzar el algoritmo</p>
+                    <p><b style="font-weight:bold">Número de estaciones:</b> En cuántas fases se repartirá la distribución de tareas </p>
+                    <p><b style="font-weight:bold">Tamaño de población:</b> Número inicial de individuos con el que se desea comenzar el algoritmo</p>
                     <p><b style="font-weight:bold">Función de evaluación:</b></p>
                         <ul> 
-                            <li>Máximo-Mínimo: Minimizar la diferencia entre el tiempo maximo y mínimo de las estaciones</li> 
-                            <li>Maximo : Minimizar el tiempo máximo de las estaciones</li> 
+                            <li>Máximo-Mínimo: Minimizar la diferencia entre el tiempo máximo y mínimo de las estaciones</li> 
+                            <li>Máximo : Minimizar el tiempo máximo de las estaciones</li> 
                             <li>Varianza: Minimizar la varianza entre las estaciones</li> 
-                            <li>Maximo Varianza: Minimizar el valor máximo la varianza entre las estaciones</li> 
+                            <li>Máximo Varianza: Suma de la varianza y el máximo al cuadrado, de forma que se tengan en cuenta ambas</li> 
                         </ul> 
                     <p><b style="font-weight:bold">Tipo de cruce:</b> </p>
                         <ul> 
-                            <li>Un punto: Cortar en un punto e insertar el cromosoma del un padre de un lado y del otro padre del otro</li> 
-                            <li>Dos puntos : Cortar en dos puntos e ir alternando los cromosoma de los padres cuando se llegan a los puntos</li> 
-                            <li>Uniforme: En cada posición del cromosoma se hereda un gen de los padres, pudiendo ser de uno o de otro</li> 
+                            <li>Un punto: Se selecciona al azar una posición de cruce y se intercambian las subcadenas situadas a la derecha de esta posición de ambos padres</li> 
+                            <li>Dos puntos: Cortar en dos puntos e ir alternando los cromosomas de los padres cuando se llegan a dichos puntos</li> 
+                            <li>Uniforme: En cada posición del cromosoma se hereda un gen de los padres, pudiendo ser de cualquiera de ellos</li> 
                         </ul> 
-                    <p><b style="font-weight:bold">Probabilidad de cruce:</b> Probabilidad de que dada una pareja de individuos, estos se reproduzca </p>
+                    <p><b style="font-weight:bold">Probabilidad de cruce:</b> Probabilidad de que, dada una pareja de individuos, estos se reproduzcan </p>
                     <p><b style="font-weight:bold">Tipo de mutación:</b> </p>
                         <ul> 
                             <li>Aleatorio: Si un gen muta, se le asigna cualquier estación</li> 
-                            <li>Incremento/Decremento : Si un gen muta, se le asigna una estación más o una estación menos de la que previamente tenía</li>  
+                            <li>Incremento/Decremento: Si un gen muta, se le asigna una estación más o una estación menos de la que previamente tenía</li>  
                         </ul> 
-                    <p><b style="font-weight:bold">Probablidad de mutación:</b> Que probabilidad tiene un individuo de mutar tras </p>
+                    <p><b style="font-weight:bold">Probablidad de mutación:</b> Qué probabilidad tiene un individuo de mutar tras nacer</p>
                     <p><b style="font-weight:bold">Mecanismo de selección:</b></p>
 
                     <ul> 
-                        <li>Torneo: Se organiza una competición entre los distintos individuos y se selecciona a los ganadores </li> 
-                        <li>Ruleta: Se selecciona a los individuos con una probabilidad proporcional al valor obtenido en la función de evaluación </li> 
+                        <li>Torneo: Se organiza una competición entre los distintos individuos y se seleccionan a los ganadores </li> 
+                        <li>Ruleta: Se seleccionan a los individuos con una probabilidad proporcional al valor obtenido por su función de evaluación </li> 
                     </ul> 
 
                     <p><b style="font-weight:bold">Ratio de élite:</b> Representa el porcentaje de los mejores individuos que se mantienen de la generación anterior</p>
